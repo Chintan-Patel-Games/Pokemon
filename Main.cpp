@@ -4,5 +4,10 @@ using namespace std;
 
 int main()
 {
-    cout << "Hello World!" << endl;
+    string player_name;
+
+    cout << "Enter your name : ";
+    cin >> player_name;
+
+    cout << "Great Start " << player_name << ", looks like you have understood the main() function properly now!" << endl;
 }

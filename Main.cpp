@@ -21,8 +21,14 @@ int main()
     cout << "1. Bulbasaur\n2. Charmander\n3. Squirtle"
          << endl;
 
-    cout << "\nProfesor Oak : Which Pokémon would you like to choose? Enter the number: ";
+    cout << "\nProfesor Oak : Today is a momentous day — you’ll be choosing your very first Pokémon." << endl;
+
+    cout << "\nProfesor Oak : Every great Trainer remembers this moment for the rest of their lives." << endl;
+
+    cout << "\nProfesor Oak : So, choose wisely, young one!\n" << endl;
+
     int choice;
+    cout << player_name << " : Your choice :- ";
     cin >> choice;
 
     if (choice == 1)
@@ -36,4 +42,14 @@ int main()
 
     else
         cout << "\nProfesor Oak : Invalid choice. Please restart the game." << endl;
+
+    cout << "\nProfesor Oak : Ah, an excellent choice!" << endl;
+
+    cout << "\nProfesor Oak : But beware, Trainer, this is only the beginning." << endl;
+
+    cout << "\nProfesor Oak : Your journey is about to unfold." << endl;
+
+    cout << "\nProfesor Oak : Now let’s see if you’ve got what it takes to keep going!" << endl;
+
+    cout << "\nProfesor Oak : Good luck, and remember… Choose wisely!" << endl;
 }

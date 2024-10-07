@@ -2,10 +2,18 @@
 
 using namespace std;
 
+enum PokemonChoice
+{
+    Charmander,
+    Bulbasaur,
+    Squirtle,
+    InvalidChoice
+};
+
 int main()
 {
     string player_name;
-    string chosen_pokemon;
+    PokemonChoice chosen_pokemon = InvalidChoice;
 
     cout << "Professor Oak : Welcome to the world of Pokémon! I am Professor Oak.\n\n";
 
@@ -20,14 +28,18 @@ int main()
     cout << "\nProfesor Oak : You can choose one of the following Pokémon:\n"
          << endl;
 
-    cout << "1. Bulbasaur\n2. Charmander\n3. Squirtle"
-         << endl;
+    cout << "1. Charmander - The fire type. A real hothead!" << endl;
+    
+    cout << "2. Bulbasaur - The grass type. Calm and collected!" << endl;
+    
+    cout << "3. Squirtle - The water type. Cool as a cucumber!" << endl;
 
     cout << "\nProfesor Oak : Today is a momentous day — you’ll be choosing your very first Pokémon." << endl;
 
     cout << "\nProfesor Oak : Every great Trainer remembers this moment for the rest of their lives." << endl;
 
-    cout << "\nProfesor Oak : So, choose wisely, young one!\n" << endl;
+    cout << "\nProfesor Oak : So, choose wisely, young one!\n"
+         << endl;
 
     int choice;
     cout << player_name << " : Your choice :- ";
@@ -58,28 +70,44 @@ int main()
     switch (choice)
     {
     case 1:
-        chosen_pokemon = "Charmander";
-        cout << "\nProfessor Oak : A fiery choice! Charmander is yours!\n";
+        chosen_pokemon = Charmander;
         break;
 
     case 2:
-        chosen_pokemon = "Bulbasaur";
-        cout << "\nProfessor Oak : A fine choice! Bulbasaur is always ready to grow on you!\n";
+        chosen_pokemon = Bulbasaur;
         break;
 
     case 3:
-        chosen_pokemon = "Squirtle";
+        chosen_pokemon = Squirtle;
+        break;
+
+    default:
+        chosen_pokemon = InvalidChoice;
+        break;
+    }
+
+    switch (chosen_pokemon)
+    {
+    case Charmander:
+        cout << "\nProfessor Oak : A fiery choice! Charmander is yours!\n";
+        break;
+
+    case Bulbasaur:
+        cout << "\nProfessor Oak : A fine choice! Bulbasaur is always ready to grow on you!\n";
+        break;
+
+    case Squirtle:
         cout << "\nProfessor Oak : Splendid! Squirtle will keep you cool under pressure!\n";
         break;
 
     default:
         cout << "\nProfessor Oak : Hmm, that doesn't seem right. Let me choose for you...\n";
-        chosen_pokemon = "Pikachu";
-        cout << "\nProfessor Oak : Just kidding! Let's go with Pikachu, the surprise guest!\n";
+        chosen_pokemon = Charmander;
+        cout << "\nProfessor Oak : Just kidding! Let's go with Charmander, the fiery dragon in the making!\n";
         break;
     }
 
-    cout << "\nProfessor Oak : " << chosen_pokemon << " and you, " << player_name << ", are going to be the best of friends!\n";
-    
+    cout << "\nProfessor Oak : " << (chosen_pokemon == Charmander ? "Charmander" : chosen_pokemon == Bulbasaur ? "Bulbasaur" : "Squirtle") << " and you, " << player_name << ", are going to be the best of friends!\n";
+
     cout << "\nProfessor Oak : Your journey begins now! Get ready to explore the vast world of Pokemon!\n";
 }

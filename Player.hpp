@@ -14,5 +14,5 @@ public:
     Player();                                       // Default constructor
     Player(string p_name, Pokemon p_chosenPokemon); // Parameterized constructor
 
-    void choosePokemon(int choice); // Method to choose a Pokemon
+    void ChoosePokemon(int choice); // Method to choose a Pokemon
 };

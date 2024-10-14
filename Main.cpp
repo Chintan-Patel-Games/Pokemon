@@ -48,6 +48,8 @@ public:
     void attack() { cout << name << " attacks with a powerful move!\n"; }
 };
 
+#include "Player.hpp"
+
 // ProfessorOak class definition
 class ProfessorOak
 {

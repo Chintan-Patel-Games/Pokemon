@@ -291,4 +291,4 @@ int main()
 
     // Start the main game loop
     GameLoop(player);
-}
+#include "header.hpp"

@@ -7,7 +7,6 @@ using namespace std;
 
 enum PokemonType;
 
-class Pokemon;
 class Player;
 
 // ProfessorOak class definition

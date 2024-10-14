@@ -15,7 +15,7 @@ Player::Player(string p_name, Pokemon p_chosenPokemon)
     chosenPokemon = p_chosenPokemon;
 }
 
-void Player::choosePokemon(int choice)
+void Player::ChoosePokemon(int choice)
 {
     switch ((PokemonChoice)choice)
     {

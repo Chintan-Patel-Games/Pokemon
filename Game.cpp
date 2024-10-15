@@ -45,7 +45,7 @@ void Game::GameLoop(Player &player)
         {
             WildEncounterManager encounterManager;
             Pokemon encounteredPokemon = encounterManager.getRandomPokemonFromGrass(forestGrass);
-            cout << "A wild " << encounteredPokemon.name << " appeared!\n";
+            Game::Battle(player.chosenPokemon, encounteredPokemon);
             break;
         }
         case 2:
@@ -91,4 +91,24 @@ void Game::GameLoop(Player &player)
     }
 
     cout << "Goodbye, " << player.name << "! Thanks for playing!\n";
+}
+
+void Game::Battle(Pokemon &playerPokemon, Pokemon &wildPokemon)
+{
+    cout << "A wild " << wildPokemon.name << " appeared!" << endl;
+    Utility::WaitForEnter();
+
+    while (!playerPokemon.IsFainted() && !wildPokemon.IsFainted())
+    {
+        playerPokemon.Attack(wildPokemon); // Player attacks first
+
+        if (!wildPokemon.IsFainted())
+            wildPokemon.Attack(playerPokemon); // Wild Pokémon attacks back
+        Utility::WaitForEnter();
+    }
+
+    if (playerPokemon.IsFainted())
+        cout << playerPokemon.name << " has fainted! You lose the battle." << endl;
+    else
+        cout << "You defeated the wild " << wildPokemon.name << "!" << endl;
 }

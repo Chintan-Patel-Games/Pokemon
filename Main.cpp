@@ -26,6 +26,8 @@ int main()
     // Explain the main quest
     professor.ExplainMainQuest(player);
 
+    Game game;
+    
     // Start the main game loop
-    Game::GameLoop;
+    game.GameLoop(player);
 }

@@ -1,3 +1,6 @@
+#ifndef GRASS_HPP
+#define GRASS_HPP
+
 // grass.hpp
 #include "PokemonType.hpp"
 #include "Pokemon.hpp"
@@ -13,20 +16,4 @@ struct Grass
     int encounterRate;                   // Likelihood of encountering a wild Pokémon, out of 100
 };
 
-Grass forestGrass = {
-    "Forest",
-    {
-        {"Zubat", PokemonType::Poison, 30},
-        {"Caterpie", PokemonType::Bug, 35},
-        {"Pidgey", PokemonType::Normal, 40}
-    },
-    80
-};
-
-Grass caveGrass = {
-    "Cave",
-    {
-        {"Geodude", PokemonType::Rock, 50}
-    },
-    70
-};
+#endif // GRASS_HPP

@@ -1,7 +1,7 @@
-// BattleManager.hpp
-
+#pragma once
 #include "BattleState.hpp"
-#include "Player.hpp"
+class Player;
+class Pokemon;
 
 class BattleManager
 {
@@ -10,7 +10,7 @@ public:
 
 private:
     BattleState battleState;  // New BattleState object to track the battle
-    void Battle(Pokemon &playerPokemon, Pokemon &wildPokemon);
+    void Battle();
     void HandleBattleOutcome();
     void UpdateBattleState(); // Method to update the battle state after each turn
 };

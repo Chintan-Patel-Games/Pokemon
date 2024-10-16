@@ -12,7 +12,7 @@ public:
     string name;
     PokemonType type;
     int health;
-    int maxHealth;
+    int maxHealth = health;
     int attackPower;
 
     // Default constructor
@@ -31,6 +31,7 @@ public:
     void TakeDamage(int damage); // Method to reduce HP
     bool IsFainted() const;  // Method to check if the Pokemon has fainted
     void Heal(); // Method to restore HP to max
+    void PokemonStats(Pokemon &playerPokemon);
 };
 
 #endif // POKEMON_HPP

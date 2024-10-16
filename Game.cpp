@@ -3,6 +3,7 @@
 #include "PokemonType.hpp"
 #include "Utility.hpp"
 #include "WildEncounterManager.hpp"
+#include "BattleManager.hpp"
 #include <iostream>
 using namespace std;
 
@@ -18,6 +19,7 @@ Game::Game()
 
 void Game::GameLoop(Player &player)
 {
+    BattleManager battleManager;
     int choice;
     bool keepPlaying = true;
 
@@ -32,7 +34,8 @@ void Game::GameLoop(Player &player)
         cout << "2. Visit PokeCenter\n";
         cout << "3. Challenge Gyms\n";
         cout << "4. Enter Pokémon League\n";
-        cout << "5. Quit\n";
+        cout << "5. Pokémon Stats\n";
+        cout << "6. Quit\n";
         cout << "Enter your choice: ";
         cin >> choice;
 
@@ -44,8 +47,8 @@ void Game::GameLoop(Player &player)
         case 1:
         {
             WildEncounterManager encounterManager;
-            Pokemon encounteredPokemon = encounterManager.getRandomPokemonFromGrass(forestGrass);
-            Game::Battle(player.chosenPokemon, encounteredPokemon);
+            Pokemon wildPokemon = encounterManager.getRandomPokemonFromGrass(forestGrass);
+            battleManager.StartBattle(player, wildPokemon);
             break;
         }
         case 2:
@@ -66,6 +69,13 @@ void Game::GameLoop(Player &player)
             break;
         }
         case 5:
+        {
+            cout << "So, have you been keeping your Pokémon in a good shape or not? Let's see..." << endl;
+            Pokemon pokemon;
+            pokemon.PokemonStats(player.chosenPokemon);
+            break;
+        }
+        case 6:
         {
             cout << "You try to quit, but Professor Oak's voice echoes: 'There's no quitting in Pokémon training!'\n";
             cout << "Are you sure you want to quit? (y/n): ";
@@ -93,24 +103,4 @@ void Game::GameLoop(Player &player)
     }
 
     cout << "Goodbye, " << player.name << "! Thanks for playing!\n";
-}
-
-void Game::Battle(Pokemon &playerPokemon, Pokemon &wildPokemon)
-{
-    cout << "A wild " << wildPokemon.name << " appeared!" << endl;
-    Utility::WaitForEnter();
-
-    while (!playerPokemon.IsFainted() && !wildPokemon.IsFainted())
-    {
-        playerPokemon.Attack(wildPokemon); // Player attacks first
-
-        if (!wildPokemon.IsFainted())
-            wildPokemon.Attack(playerPokemon); // Wild Pokémon attacks back
-        Utility::WaitForEnter();
-    }
-
-    if (playerPokemon.IsFainted())
-        cout << playerPokemon.name << " has fainted! You lose the battle." << endl;
-    else
-        cout << "You defeated the wild " << wildPokemon.name << "!" << endl;
 }

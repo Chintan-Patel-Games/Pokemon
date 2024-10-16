@@ -28,7 +28,7 @@ void Pokemon::Attack(Pokemon &target)
 void Pokemon::TakeDamage(int damage)
 {
     health -= damage; // Reduce HP by the damage amount
-    if (health < 0)
+    if (Pokemon::IsFainted())
     {
         health = 0; // Ensure HP doesn't go below 0
     }
@@ -42,4 +42,13 @@ bool Pokemon::IsFainted() const
 void Pokemon::Heal()
 {
     health = maxHealth; // Restore health to full
+}
+
+void Pokemon::PokemonStats(Pokemon &playerPokemon)
+{
+    cout << "Here are the stats of your Pokemon" << endl;
+    cout << "Name          : " << playerPokemon.name << endl;
+    cout << "CurrentHealth : " << playerPokemon.health << endl;
+    cout << "MaxHealth     : " << playerPokemon.maxHealth << endl;
+    cout << "Attack Power  : " << playerPokemon.attackPower << endl;
 }

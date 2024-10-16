@@ -1,4 +1,5 @@
 #include "BattleManager.hpp"
+#include "Player.hpp"
 #include "Utility.hpp"
 #include <iostream>
 using namespace std;
@@ -11,10 +12,10 @@ void BattleManager::StartBattle(Player &player, Pokemon &wildPokemon)
     battleState.battleOngoing = true;
 
     cout << "A wild " << wildPokemon.name << " appeared!\n";
-    Battle(player.chosenPokemon, wildPokemon);
+    Battle();
 }
 
-void BattleManager::Battle(Pokemon &playerPokemon, Pokemon &wildPokemon)
+void BattleManager::Battle()
 {
     while (battleState.battleOngoing)
     {

@@ -1,6 +1,3 @@
-#ifndef POKEMON_TYPE_HPP
-#define POKEMON_TYPE_HPP
-
 // Define an enum for Pokemon types
 enum class PokemonType
 {
@@ -13,5 +10,3 @@ enum class PokemonType
     Rock,
     Normal // Added for the default constructor
 };
-
-#endif // POKEMON_TYPE_HPP

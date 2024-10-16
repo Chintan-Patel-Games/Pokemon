@@ -12,12 +12,9 @@ using namespace std;
 
 int main()
 {
-    // Create Pokemon and Player objects for the game
-    Pokemon charmander("Charmander", PokemonType::Fire, 100, 20); // Using parameterized constructor
-
     // Continue with the main flow of the game
     ProfessorOak professor("Professor Oak");
-    Player player("Ash", charmander);
+    Player player;
 
     // Greet the player and offer Pokemon choices
     professor.GreetPlayer(player);
@@ -26,8 +23,9 @@ int main()
     // Explain the main quest
     professor.ExplainMainQuest(player);
 
-    Game game;
-    
     // Start the main game loop
+    Game game;
     game.GameLoop(player);
+
+    return 0;
 }

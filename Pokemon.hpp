@@ -1,6 +1,4 @@
-#ifndef POKEMON_HPP
-#define POKEMON_HPP
-
+#pragma once
 #include <string>
 using namespace std;
 
@@ -15,23 +13,12 @@ public:
     int maxHealth = health;
     int attackPower;
 
-    // Default constructor
     Pokemon();
-
-    // Parameterized constructor
     Pokemon(string p_name, PokemonType p_type, int p_health, int p_attackPower);
-
-    // Copy constructor
     Pokemon(const Pokemon &other);
 
-    // Destructor
-    ~Pokemon();
-
+    bool IsFainted() const;
+    void Heal();
     void Attack(Pokemon &target);
-    void TakeDamage(int damage); // Method to reduce HP
-    bool IsFainted() const;  // Method to check if the Pokemon has fainted
-    void Heal(); // Method to restore HP to max
-    void PokemonStats(Pokemon &playerPokemon);
+    void TakeDamage(int damage);
 };
-
-#endif // POKEMON_HPP

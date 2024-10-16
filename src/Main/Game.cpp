@@ -1,9 +1,9 @@
-#include "Game.hpp"
-#include "BattleManager.hpp"
-#include "Player.hpp"
-#include "PokemonType.hpp"
-#include "Utility.hpp"
-#include "WildEncounterManager.hpp"
+#include "../include/Main/Game.hpp"
+#include "../include/Battle/BattleManager.hpp"
+#include "../include/Character/Player/Player.hpp"
+#include "../include/Pokemon/PokemonType.hpp"
+#include "../include/Utility/Utility.hpp"
+#include "../include/Battle/WildEncounterManager.hpp"
 #include <iostream>
 using namespace std;
 

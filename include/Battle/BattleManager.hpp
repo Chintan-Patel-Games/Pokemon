@@ -1,5 +1,5 @@
 #pragma once
-#include "BattleState.hpp"
+#include "../include/Battle/BattleState.hpp"
 class Player;
 class Pokemon;
 

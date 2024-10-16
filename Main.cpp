@@ -13,7 +13,7 @@ using namespace std;
 int main()
 {
     // Create Pokemon and Player objects for the game
-    Pokemon charmander("Charmander", PokemonType::Fire, 100); // Using parameterized constructor
+    Pokemon charmander("Charmander", PokemonType::Fire, 100, 20); // Using parameterized constructor
 
     // Continue with the main flow of the game
     ProfessorOak professor("Professor Oak");

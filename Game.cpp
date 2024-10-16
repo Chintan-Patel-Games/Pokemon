@@ -10,9 +10,9 @@ Game::Game()
 {
     // Create a sample grass environment with actual Pokemon objects
     forestGrass = {"Forest",
-                   {Pokemon("Pidgey", PokemonType::Normal, 40),
-                    Pokemon("Caterpie", PokemonType::Bug, 35),
-                    Pokemon("Zubat", PokemonType::Poison, 30)},
+                   {Pokemon("Pidgey", PokemonType::Normal, 40, 10),
+                    Pokemon("Caterpie", PokemonType::Bug, 35, 7),
+                    Pokemon("Zubat", PokemonType::Poison, 30, 5)},
                    70};
 }
 
@@ -50,7 +50,9 @@ void Game::GameLoop(Player &player)
         }
         case 2:
         {
-            cout << "You head to the PokeCenter, but Nurse Joy is out on a coffee break. Guess your Pokémon will have to tough it out for now!\n";
+            cout << "You head to the PokeCenter.\n";
+            player.chosenPokemon.Heal(); // Heal the player's Pokémon
+            cout << player.chosenPokemon.name << "'s health is fully restored!\n";
             break;
         }
         case 3:

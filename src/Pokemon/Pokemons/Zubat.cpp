@@ -6,7 +6,6 @@ namespace N_Pokemon
 {
     namespace N_Pokemons
     {
-
         Zubat::Zubat() : Pokemon("Zubat", PokemonType::Poison, 100, 20) {}
 
         void Zubat::Supersonic(Pokemon &target)

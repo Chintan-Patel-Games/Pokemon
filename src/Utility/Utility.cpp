@@ -1,7 +1,6 @@
 #include "../include/Utility/Utility.hpp"
 #include <iostream>
 #include <limits>
-using namespace std;
 
 namespace N_Utility
 {
@@ -16,11 +15,11 @@ namespace N_Utility
 
     void Utility::WaitForEnter()
     {
-        cin.get();
+        std::cin.get();
     }
 
     void Utility::ClearInputBuffer()
     {
-        cin.ignore(numeric_limits<streamsize>::max(), '\n');
+        std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
     }
 }

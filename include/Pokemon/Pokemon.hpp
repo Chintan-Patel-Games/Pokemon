@@ -1,9 +1,10 @@
 #pragma once
-#include "../include/Pokemon/PokemonType.hpp"
 #include <string>
 
 namespace N_Pokemon
 {
+    enum class PokemonType;
+    
     class Pokemon
     {
     protected:

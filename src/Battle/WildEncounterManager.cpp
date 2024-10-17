@@ -6,14 +6,16 @@
 
 namespace N_Battle
 {
+    using namespace N_Pokemon;
+
     WildEncounterManager::WildEncounterManager()
     {
         srand(time(0)); // Seed the random number generator
     }
 
-    N_Pokemon::Pokemon WildEncounterManager::GetRandomPokemonFromGrass(const N_Pokemon::Grass &grass)
+    Pokemon WildEncounterManager::GetRandomPokemonFromGrass(const Grass &grass)
     {
         int randomIndex = rand() % grass.wildPokemonList.size();
-        return *grass.wildPokemonList[randomIndex];
+        return grass.wildPokemonList[randomIndex];
     }
 }

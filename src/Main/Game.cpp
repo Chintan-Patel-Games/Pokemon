@@ -1,24 +1,30 @@
 #include "../include/Main/Game.hpp"
 #include "../include/Battle/BattleManager.hpp"
-#include "../include/Character/Player/Player.hpp"
-#include "../include/Pokemon/PokemonType.hpp"
-#include "../include/Utility/Utility.hpp"
 #include "../include/Battle/WildEncounterManager.hpp"
+#include "../include/Character/Player/Player.hpp"
+#include "../../include/Pokemon/Pokemons/Caterpie.hpp"
+#include "../../include/Pokemon/Pokemons/Pidgey.hpp"
+#include "../../include/Pokemon/Pokemons/Zubat.hpp"
+#include "../include/Utility/Utility.hpp"
 #include <iostream>
 using namespace std;
 
 namespace N_Main
 {
-    Game::Game() : forestGrass{"Forest",
-                               {new N_Pokemon::Pokemon("Pidgey", N_Pokemon::PokemonType::Normal, 40, 7),
-                                new N_Pokemon::Pokemon("Caterpie", N_Pokemon::PokemonType::Bug, 35, 5),
-                                new N_Pokemon::Pokemon("Zubat", N_Pokemon::PokemonType::Poison, 30, 8)},
-                               70}
+    using namespace std;
+    using namespace N_Utility;
+    using namespace N_Pokemon;
+    using namespace N_Pokemon::N_Pokemons;
+    using namespace N_Battle;
+    using namespace N_Character::N_Player;
+
+    Game::Game()
     {
-        // Additional constructor code can go here
+        // Create a sample grass environment with actual Pokemon objects
+        forestGrass = {"Forest", {Pidgey(), Caterpie(), Zubat()}, 70};
     }
 
-    void Game::GameLoop(N_Player::Player &player)
+    void Game::GameLoop(Player &player)
     {
         int choice;
         bool keepPlaying = true;
@@ -29,7 +35,7 @@ namespace N_Main
         while (keepPlaying)
         {
             // Clear console before showing options
-            N_Utility::Utility::ClearConsole();
+            Utility::ClearConsole();
 
             // Display options to the player
             cout << "\nWhat would you like to do next, " << player.name << "?\n";
@@ -41,7 +47,7 @@ namespace N_Main
             cout << "Enter your choice: ";
             cin >> choice;
 
-            N_Utility::Utility::ClearInputBuffer(); // Clear the input buffer
+            Utility::ClearInputBuffer(); // Clear the input buffer
 
             // Process the player's choice and display the corresponding message
             switch (choice)
@@ -89,13 +95,13 @@ namespace N_Main
 
             // Wait for Enter key before the screen is cleared and the menu is shown
             // again
-            N_Utility::Utility::WaitForEnter();
+            Utility::WaitForEnter();
         }
 
         cout << "Goodbye, " << player.name << "! Thanks for playing!\n";
     }
 
-    void Game::VisitPokeCenter(N_Player::Player &player)
+    void Game::VisitPokeCenter(Player &player)
     {
         if (player.chosenPokemon.GetPokemonCurrentHealth() == player.chosenPokemon.GetPokemonMaxHealth())
         {
@@ -105,7 +111,7 @@ namespace N_Main
         {
             cout << "You head to the PokeCenter.\n";
             cout << "Healing your Pokémon...\n";
-            N_Utility::Utility::WaitForEnter(); // Simulate a short pause for the healing process
+            Utility::WaitForEnter(); // Simulate a short pause for the healing process
             player.chosenPokemon.Heal();        // Heal the player's Pokémon
             cout << player.chosenPokemon.GetPokemonName() << "'s health is fully restored!\n";
         }

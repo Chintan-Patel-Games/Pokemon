@@ -1,10 +1,13 @@
 #pragma once
-#pragma once
-#include "../include/Character/Player/Player.hpp"
 #include <iostream>
+#include "../include/Character/Player/Player.hpp"
+
+class Player;
 
 namespace N_Character
 {
+    using namespace N_Player;
+
     class ProfessorOak
     {
     public:
@@ -12,7 +15,7 @@ namespace N_Character
 
         ProfessorOak(std::string p_name);
         void GreetPlayer();
-        void OfferPokemonChoices(N_Player::Player &player);
-        void ExplainMainQuest(N_Player::Player &player);
+        void OfferPokemonChoices(Player &player);
+        void ExplainMainQuest(Player &player);
     };
 }

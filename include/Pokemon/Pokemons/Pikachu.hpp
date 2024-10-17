@@ -5,11 +5,12 @@ namespace N_Pokemon
 {
     namespace N_Pokemons
     {
-        class Pikachu : public N_Pokemon::Pokemon
+        class Pikachu : public Pokemon
         {
+        private:
+            void ThunderShock(Pokemon &target);
         public:
             Pikachu();
-            void ThunderShock(Pokemon &target);
         };
     }
 }

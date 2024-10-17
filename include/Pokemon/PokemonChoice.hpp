@@ -1,8 +1,12 @@
-// Define an enum for Pokemon choices
-enum class PokemonChoice
+#pragma once
+namespace N_Pokemon
 {
-    Charmander = 1,
-    Bulbasaur,
-    Squirtle,
-    Pikachu // Default choice
-};
+    // Define an enum for Pokemon choices
+    enum class PokemonChoice
+    {
+        Charmander = 1,
+        Bulbasaur,
+        Squirtle,
+        Pikachu // Default choice
+    };
+}

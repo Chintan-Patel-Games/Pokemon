@@ -1,16 +1,19 @@
 #pragma once
 #include <string>
+#pragma once
 #include "../include/Pokemon/Pokemon.hpp"
-using namespace std;
 
-class Player
+namespace N_Player
 {
-public:
-    string name;
-    Pokemon chosenPokemon;
+    class Player
+    {
+    public:
+        std::string name;
+        N_Pokemon::Pokemon chosenPokemon;
 
-    Player();                                       // Default constructor
-    Player(string p_name, Pokemon p_chosenPokemon); // Parameterized constructor
+        Player();                                       // Default constructor
+        Player(std::string p_name, N_Pokemon::Pokemon p_chosenPokemon); // Parameterized constructor
 
-    void ChoosePokemon(int choice); // Method to choose a Pokemon
-};
+        void ChoosePokemon(int choice); // Method to choose a Pokemon
+    };
+}

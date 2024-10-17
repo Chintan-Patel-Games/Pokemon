@@ -35,7 +35,7 @@ namespace N_Player
             chosenPokemon = N_Pokemon::Pokemon("Pikachu", N_Pokemon::PokemonType::Electric, 100, 20);
             break;
         }
-        std::cout << "Player " << name << " chose " << chosenPokemon.name << "!\n";
+        std::cout << "Player " << name << " chose " << chosenPokemon.GetPokemonName() << "!\n";
         N_Utility::Utility::WaitForEnter(); // Wait for user to press Enter before proceeding
     }
 }

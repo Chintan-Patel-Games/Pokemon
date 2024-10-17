@@ -97,7 +97,7 @@ namespace N_Main
 
     void Game::VisitPokeCenter(N_Player::Player &player)
     {
-        if (player.chosenPokemon.health == player.chosenPokemon.maxHealth)
+        if (player.chosenPokemon.GetPokemonCurrentHealth() == player.chosenPokemon.GetPokemonMaxHealth())
         {
             cout << "Your Pokémon is already at full health!\n";
         }
@@ -107,7 +107,7 @@ namespace N_Main
             cout << "Healing your Pokémon...\n";
             N_Utility::Utility::WaitForEnter(); // Simulate a short pause for the healing process
             player.chosenPokemon.Heal();        // Heal the player's Pokémon
-            cout << player.chosenPokemon.name << "'s health is fully restored!\n";
+            cout << player.chosenPokemon.GetPokemonName() << "'s health is fully restored!\n";
         }
     }
 }

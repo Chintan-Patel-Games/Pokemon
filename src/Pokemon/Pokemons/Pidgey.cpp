@@ -10,7 +10,7 @@ namespace N_Pokemon
 
         void Pidgey::WingAttack(Pokemon &target)
         {
-            std::cout << name << " uses Wing Attack on " << target.name << "!\n";
+            std::cout << name << " uses Wing Attack on " << target.GetPokemonName() << "!\n";
             target.TakeDamage(20);
         }
     }

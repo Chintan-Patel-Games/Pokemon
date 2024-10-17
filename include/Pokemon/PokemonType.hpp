@@ -1,12 +1,16 @@
-// Define an enum for Pokemon types
-enum class PokemonType
+#pragma once
+namespace N_Pokemon
 {
-    Fire,
-    Grass,
-    Water,
-    Electric,
-    Bug,
-    Poison,
-    Rock,
-    Normal // Added for the default constructor
-};
+    // Define an enum for Pokemon types
+    enum class PokemonType
+    {
+        Fire,
+        Grass,
+        Water,
+        Electric,
+        Bug,
+        Poison,
+        Rock,
+        Normal // Added for the default constructor
+    };
+}

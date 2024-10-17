@@ -1,7 +1,11 @@
-class Utility
+#pragma once
+namespace N_Utility
 {
-public:
-    static void ClearConsole();
-    static void WaitForEnter();
-    static void ClearInputBuffer();
-};
+    class Utility
+    {
+    public:
+        static void ClearConsole();
+        static void WaitForEnter();
+        static void ClearInputBuffer();
+    };
+}

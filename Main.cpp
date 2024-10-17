@@ -13,18 +13,18 @@ using namespace std;
 int main()
 {
     // Continue with the main flow of the game
-    ProfessorOak professor("Professor Oak");
-    Player player;
+    N_Character::ProfessorOak professor("Professor Oak");
+    N_Player::Player player;
 
     // Greet the player and offer Pokemon choices
-    professor.GreetPlayer(player);
+    professor.GreetPlayer();
     professor.OfferPokemonChoices(player);
 
     // Explain the main quest
     professor.ExplainMainQuest(player);
 
     // Start the main game loop
-    Game game;
+    N_Main::Game game;
     game.GameLoop(player);
 
     return 0;

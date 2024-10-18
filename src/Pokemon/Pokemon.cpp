@@ -1,6 +1,7 @@
 #include "../include/Pokemon/Pokemon.hpp"
 #include "../include/Pokemon/PokemonType.hpp"
 #include "../include/Utility/Utility.hpp"
+#include "../include/Pokemon/StatusEffects/ParalyzedEffect.hpp"
 #include <iostream>
 
 namespace N_Pokemon
@@ -38,10 +39,30 @@ namespace N_Pokemon
 
     void Pokemon::Attack(Move selectedMove, Pokemon *target) { target->TakeDamage(selectedMove.power); }
 
-    void Pokemon::ClearEffect()
+    bool Pokemon::CanAttack()
     {
-        std::cout << "Your pokemon has no effects now. You may continue your fight." << endl;
+        if (appliedEffect == nullptr)
+            return true;
+        else
+            return appliedEffect->TurnEndEffect(this);
     }
+
+    bool Pokemon::CanApplyEffect() { return appliedEffect == nullptr; }
+
+    void Pokemon::ApplyEffect(N_StatusEffects::StatusEffectType effectToApply)
+    {
+        switch (effectToApply)
+        {
+        case N_StatusEffects::StatusEffectType::Paralyzed:
+            appliedEffect = new N_StatusEffects::ParalyzedEffect();
+            appliedEffect->ApplyEffect(this);
+            break;
+        default:
+            appliedEffect = nullptr;
+        }
+    }
+
+    void Pokemon::ClearEffect() { appliedEffect = nullptr; }
 
     void Pokemon::ReduceAttackPower(int reducedDamage)
     {

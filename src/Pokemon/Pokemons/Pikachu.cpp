@@ -24,6 +24,12 @@ namespace N_Pokemon
             }
             else
                 Pokemon::Attack(selectedMove, target);
+
+            if(selectedMove.name == "THUNDER SHOCK")
+            {
+                if(target->CanApplyEffect())
+                    target->ApplyEffect(N_StatusEffects::StatusEffectType::Paralyzed);
+            }
         }
     }
 }

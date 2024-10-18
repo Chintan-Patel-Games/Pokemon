@@ -1,5 +1,6 @@
 #include "../include/Pokemon/Pokemons/Zubat.hpp"
 #include "../include/Pokemon/PokemonType.hpp"
+#include "../include/Pokemon/Move.hpp"
 #include "../include/Utility/Utility.hpp"
 #include <iostream>
 
@@ -7,28 +8,24 @@ namespace N_Pokemon
 {
     namespace N_Pokemons
     {
-        Zubat::Zubat() : Pokemon("Zubat", PokemonType::Poison, 100, 20) {}
+        Zubat::Zubat() : Pokemon("Zubat", PokemonType::Poison, 100, {Move("SUPERSONIC", 25), Move("TACKLE", 10)}) {}
 
-        void Zubat::Attack(Pokemon* target)
+        void Zubat::Attack(Move selectedMove, Pokemon *target)
         {
-            Supersonic(target);
-        }
+            // Call the base class method from child class.
+            Pokemon::Attack(selectedMove, target);
 
-        void Zubat::Supersonic(Pokemon* target)
-        {
-            std::cout << name << " used SUERSONIC!";
-            N_Utility::Utility::WaitForEnter();
+            if (selectedMove.name == "LEECH LIFE")
+            {
+                // Restore 50% of the damage dealt
+                this->health += selectedMove.power * 0.5;
 
-            std::cout << "...";
-            N_Utility::Utility::WaitForEnter();
+                // Ensure health does not exceed maxHealth
+                if (this->health > this->maxHealth)
+                    this->health = this->maxHealth;
 
-            target->TakeDamage(attackPower);
-
-            if (target->IsFainted())
-                std::cout << target->name << " fainted!";
-            else
-                std::cout << target->name << " has " << target->health << " HP left.";
-            N_Utility::Utility::WaitForEnter();
+                std::cout << "... and regained health!\n";
+            }
         }
     }
 }

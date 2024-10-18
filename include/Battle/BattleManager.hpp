@@ -14,6 +14,7 @@ namespace N_Battle
     public:
         ~BattleManager();
         void StartBattle(N_Character::N_Player::Player* player, N_Pokemon::Pokemon* wildPokemon);
+        void StopBattle();
 
     private:
         BattleState battleState; // New BattleState object to track the battle

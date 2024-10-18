@@ -1,5 +1,6 @@
 #include "../include/Pokemon/Pokemons/Balbasaur.hpp"
 #include "../include/Pokemon/PokemonType.hpp"
+#include "../include/Pokemon/Move.hpp"
 #include "../include/Utility/Utility.hpp"
 #include <iostream>
 
@@ -7,28 +8,25 @@ namespace N_Pokemon
 {
     namespace N_Pokemons
     {
-        Balbasaur::Balbasaur() : Pokemon("Balbasaur", PokemonType::Grass, 100, 35) {}
+        Balbasaur::Balbasaur() : Pokemon("Balbasaur", PokemonType::Grass, 110, {Move("VINE WHIP", 25), Move("TACKLE", 10)}) {}
 
-        void Balbasaur::Attack(Pokemon *target)
+        void Balbasaur::Attack(Move selectedMove, Pokemon *target)
         {
-            VineWhip(target);
-        }
+            Pokemon::Attack(selectedMove, target);
 
-        void Balbasaur::VineWhip(Pokemon *target)
-        {
-            std::cout << name << " used VINE WHIP!";
-            N_Utility::Utility::WaitForEnter();
+            if (selectedMove.name == "VINE WHIP")
+            {
+                // Chance for a second hit (50% chance)
+                int secondHitChance = rand() % 2;
 
-            std::cout << "...";
-            N_Utility::Utility::WaitForEnter();
-
-            target->TakeDamage(attackPower);
-
-            if (target->IsFainted())
-                std::cout << target->name << " fainted!";
-            else
-                std::cout << target->name << " has " << target->health << " HP left.";
-            N_Utility::Utility::WaitForEnter();
+                if (secondHitChance == 1)
+                {
+                    Pokemon::Attack(selectedMove, target);
+                    std::cout << name << " hits again with a second " << selectedMove.name << "!\n";
+                }
+                else
+                    std::cout << target->name << " dodged the second hit!\n";
+            }
         }
     }
 }

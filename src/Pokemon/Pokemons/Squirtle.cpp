@@ -1,5 +1,6 @@
 #include "../include/Pokemon/Pokemons/Squirtle.hpp"
 #include "../include/Pokemon/PokemonType.hpp"
+#include "../include/Pokemon/Move.hpp"
 #include "../include/Utility/Utility.hpp"
 #include <iostream>
 
@@ -7,28 +8,25 @@ namespace N_Pokemon
 {
     namespace N_Pokemons
     {
-        Squirtle::Squirtle() : Pokemon("Squirtle", PokemonType::Water, 100, 35) {}
+        Squirtle::Squirtle() : Pokemon("Squirtle", PokemonType::Water, 100, {Move("WATER SPLASH", 25), Move("TACKLE", 10)}) {}
 
-        void Squirtle::Attack(Pokemon* target)
+        void Squirtle::Attack(Move selectedMove, Pokemon *target)
         {
-            WaterSplash(target);
-        }
+            Pokemon::Attack(selectedMove, target);
 
-        void Squirtle::WaterSplash(Pokemon* target)
-        {
-            std::cout << name << " used WATER SPLASH!";
-            N_Utility::Utility::WaitForEnter();
+            if (selectedMove.name == "RAPID SPIN")
+            {
+                // Random number of hits between 2 and 5
+                int hits = (rand() % 4) + 2;
 
-            std::cout << "...";
-            N_Utility::Utility::WaitForEnter();
+                // Split damage across hits
+                for (int i = 0; i < hits; ++i)
+                {
+                    Pokemon::Attack(selectedMove, target);
+                }
 
-            target->TakeDamage(attackPower);
-
-            if (target->IsFainted())
-                std::cout << target->name << " fainted!";
-            else
-                std::cout << target->name << " has " << target->health << " HP left.";
-            N_Utility::Utility::WaitForEnter();
+                std::cout << "... and hit " << hits << " times!\\n";
+            }
         }
     }
 }

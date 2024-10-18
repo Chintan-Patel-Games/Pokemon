@@ -1,5 +1,6 @@
 #include "../include/Pokemon/Pokemons/Pikachu.hpp"
 #include "../include/Pokemon/PokemonType.hpp"
+#include "../include/Pokemon/Move.hpp"
 #include "../include/Utility/Utility.hpp"
 #include <iostream>
 
@@ -7,28 +8,23 @@ namespace N_Pokemon
 {
     namespace N_Pokemons
     {
-        Pikachu::Pikachu() : Pokemon("Pikachu", PokemonType::Electric, 100, 20) {}
+        Pikachu::Pikachu() : Pokemon("Pikachu", PokemonType::Electric, 100, {Move("THUNDER SHOCK", 25), Move("TACKLE", 10)}) {}
 
-        void Pikachu::Attack(Pokemon* target)
+        void Pikachu::Attack(Move selectedMove, Pokemon *target)
         {
-            ThunderShock(target);
-        }
-
-        void Pikachu::ThunderShock(Pokemon* target)
-        {
-            std::cout << name << " used THUNDER SHOCK!";
-            N_Utility::Utility::WaitForEnter();
-
-            std::cout << "...";
-            N_Utility::Utility::WaitForEnter();
-
-            target->TakeDamage(attackPower);
-
-            if (target->IsFainted())
-                std::cout << target->name << " fainted!";
+            if (selectedMove.name == "THUNDER BOLT")
+            {
+                // 80% chance to hit
+                if (rand() % 100 < 80)
+                {
+                    Pokemon::Attack(selectedMove, target);
+                    std::cout << "... and it hit successfully!\n";
+                }
+                else
+                    std::cout << "... but it missed!\n";
+            }
             else
-                std::cout << target->name << " has " << target->health << " HP left.";
-            N_Utility::Utility::WaitForEnter();
+                Pokemon::Attack(selectedMove, target);
         }
     }
 }

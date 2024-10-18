@@ -5,7 +5,6 @@
 
 namespace N_Character
 {
-    using namespace std;
     using namespace N_Utility;
     using namespace N_Player;
 
@@ -21,7 +20,7 @@ namespace N_Character
         Utility::WaitForEnter();
     }
 
-    void ProfessorOak::OfferPokemonChoices(Player* &player)
+    void ProfessorOak::OfferPokemonChoices(Player* player)
     {
         std::cout << name << ": First, tell me, what’s your name? \t [Please Enter Your Name]\n";
         std::cin >> player->name;
@@ -46,7 +45,7 @@ namespace N_Character
         Utility::WaitForEnter();
     }
 
-    void ProfessorOak::ExplainMainQuest(Player* &player)
+    void ProfessorOak::ExplainMainQuest(Player* player)
     {
         // Clear the console
         Utility::ClearConsole();

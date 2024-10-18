@@ -16,6 +16,6 @@ namespace N_Battle
     {
     public:
         WildEncounterManager();
-        N_Pokemon::Pokemon* GetRandomPokemonFromGrass(const Grass* grass);
+        N_Pokemon::Pokemon* GetRandomPokemonFromGrass(const Grass grass);
     };
 }

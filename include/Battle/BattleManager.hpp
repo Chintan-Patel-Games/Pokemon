@@ -7,15 +7,16 @@ namespace N_Battle
     class Pokemon;
 
     using namespace N_Character::N_Player;
+    using namespace N_Pokemon;
 
     class BattleManager
     {
     public:
         ~BattleManager();
-        void StartBattle(Player* &player, N_Pokemon::Pokemon* &wildPokemon);
+        void StartBattle(N_Character::N_Player::Player* player, N_Pokemon::Pokemon* wildPokemon);
 
     private:
-        BattleState* battleState = nullptr; // New BattleState object to track the battle
+        BattleState battleState; // New BattleState object to track the battle
         
         void Battle();
         void HandleBattleOutcome();

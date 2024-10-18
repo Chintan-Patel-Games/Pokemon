@@ -25,11 +25,6 @@ namespace N_Character
             chosenPokemon = p_chosenPokemon;
         }
 
-        Player::~Player()
-        {
-            delete chosenPokemon;
-        }
-
         void Player::ChoosePokemon(int choice)
         {
             switch ((PokemonChoice)choice)
@@ -44,10 +39,10 @@ namespace N_Character
                 chosenPokemon = new Pokemon("Squirtle", PokemonType::Water, 100, 20);
                 break;
             default:
-                chosenPokemon = new Pokemon("Pikachu", PokemonType::Electric, 100, 20);
+                chosenPokemon = new Pikachu();
                 break;
             }
-            std::cout << "Player " << name << " chose " << chosenPokemon->GetPokemonName() << "!\n";
+            std::cout << "Player " << name << " chose " << chosenPokemon->name << "!\n";
             Utility::WaitForEnter(); // Wait for user to press Enter before proceeding
         }
     }

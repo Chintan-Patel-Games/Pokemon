@@ -8,6 +8,11 @@ namespace N_Pokemon
     {
         Caterpie::Caterpie() : Pokemon("Caterpie", PokemonType::Bug, 100, 10) {}
 
+        void Caterpie::Attack(Pokemon* target)
+        {
+            BugBite(target);
+        }
+
         void Caterpie::BugBite(Pokemon* target)
         {
             std::cout << name << " uses Bug Bite on " << target->name << "!\n";

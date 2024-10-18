@@ -22,13 +22,17 @@ namespace N_Main
         forestGrass = {"Forest", {new Pidgey(), new Caterpie(), new Zubat()}, 70};
     }
 
+    Game::~Game()
+    {
+        delete (wildPokemon);
+    }
+
     void Game::GameLoop(Player *player)
     {
         int choice;
         bool keepPlaying = true;
         BattleManager *battleManager = new BattleManager();
         WildEncounterManager *encounterManager = new WildEncounterManager();
-        N_Pokemon::Pokemon *wildPokemon = new N_Pokemon::Pokemon();
 
         while (keepPlaying)
         {

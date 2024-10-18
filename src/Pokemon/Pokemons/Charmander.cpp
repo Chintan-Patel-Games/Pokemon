@@ -8,10 +8,10 @@ namespace N_Pokemon
     {
         Charmander::Charmander() : Pokemon("Charmander", PokemonType::Fire, 100, 35) {}
 
-        void Charmander::FlameThrower(Pokemon &target)
+        void Charmander::FlameThrower(Pokemon* &target)
         {
-            std::cout << name << " uses Flame Thrower on " << target.GetPokemonName() << "!\n";
-            target.TakeDamage(20);
+            std::cout << name << " uses Flame Thrower on " << target->GetPokemonName() << "!\n";
+            target->TakeDamage(20);
         }
     }
 }

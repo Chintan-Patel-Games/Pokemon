@@ -10,10 +10,12 @@ namespace N_Character
         {
         public:
             std::string name;
-            N_Pokemon::Pokemon chosenPokemon;
+            N_Pokemon::Pokemon* chosenPokemon = nullptr;
 
             Player(); // Default constructor
-            Player(std::string p_name, N_Pokemon::Pokemon p_chosenPokemon); // Parameterized constructor
+            Player(std::string p_name, N_Pokemon::Pokemon* p_chosenPokemon); // Parameterized constructor
+
+            ~Player();
 
             void ChoosePokemon(int choice); // Method to choose a Pokemon
         };

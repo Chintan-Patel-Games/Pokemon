@@ -28,6 +28,7 @@ namespace N_Pokemon
         void TakeDamage(int damage);
         void SelectAndUseMove(Pokemon *target);
         void ReduceAttackPower(int reducedDamage);
+        void ClearEffect();
 
     protected:
         // Base implementation for selecting and using a move

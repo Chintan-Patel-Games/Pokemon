@@ -38,6 +38,11 @@ namespace N_Pokemon
 
     void Pokemon::Attack(Move selectedMove, Pokemon *target) { target->TakeDamage(selectedMove.power); }
 
+    void Pokemon::ClearEffect()
+    {
+        std::cout << "Your pokemon has no effects now. You may continue your fight." << endl;
+    }
+
     void Pokemon::ReduceAttackPower(int reducedDamage)
     {
         for (int i = 0; i < moves.size(); i++)

@@ -15,7 +15,7 @@ namespace N_Character
             Pokemon *chosenPokemon;
 
             Player(); // Default constructor
-            Player(std::string p_name, Pokemon *p_chosenPokemon); // Parameterized constructor
+            Player(std::string p_name); // Parameterized constructor
 
             void ChoosePokemon(int choice); // Method to choose a Pokemon
         };

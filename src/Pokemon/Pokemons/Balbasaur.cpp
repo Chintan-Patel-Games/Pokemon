@@ -8,9 +8,9 @@ namespace N_Pokemon
     {
         Balbasaur::Balbasaur() : Pokemon("Balbasaur", PokemonType::Grass, 100, 35) {}
 
-        void Balbasaur::VineWhip(Pokemon* &target)
+        void Balbasaur::VineWhip(Pokemon* target)
         {
-            std::cout << name << " uses vine Whip on " << target->GetPokemonName() << "!\n";
+            std::cout << name << " uses vine Whip on " << target->name << "!\n";
             target->TakeDamage(20);
         }
     }

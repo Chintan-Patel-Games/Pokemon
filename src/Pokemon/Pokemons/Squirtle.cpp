@@ -1,14 +1,13 @@
 #include "../include/Pokemon/Pokemons/Squirtle.hpp"
 #include "../include/Pokemon/PokemonType.hpp"
 #include "../include/Pokemon/Move.hpp"
-#include "../include/Utility/Utility.hpp"
 #include <iostream>
 
 namespace N_Pokemon
 {
     namespace N_Pokemons
     {
-        Squirtle::Squirtle() : Pokemon("Squirtle", PokemonType::Water, 100, {Move("WATER SPLASH", 25), Move("TACKLE", 10)}) {}
+        Squirtle::Squirtle() : Pokemon("Squirtle", PokemonType::Water, 105, {Move("WATER SPLASH", 25), Move("TACKLE", 10), Move("RAPID SPIN", 5)}) {}
 
         void Squirtle::Attack(Move selectedMove, Pokemon *target)
         {

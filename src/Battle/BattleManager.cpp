@@ -1,10 +1,7 @@
 #include "../include/Battle/BattleManager.hpp"
 #include "../include/Character/Player/Player.hpp"
-#include "../include/Pokemon/Move.hpp"
 #include "../include/Utility/Utility.hpp"
 #include <iostream>
-#include <cstdlib> // For rand()
-#include <ctime>   // For time()
 
 namespace N_Battle
 {
@@ -23,11 +20,7 @@ namespace N_Battle
         Battle();
     }
 
-    void BattleManager::StopBattle()
-    {
-        battleState.battleOngoing = false;
-        HandleBattleOutcome();
-    }
+    void BattleManager::StopBattle() { battleState.battleOngoing = false; }
 
     void BattleManager::Battle()
     {
@@ -40,10 +33,7 @@ namespace N_Battle
             }
             else
             {
-                srand(time(0)); // Seed the random number generator
-                int randomIndex = rand() % battleState.wildPokemon->moves.size();
-                // Wild Pokémon's turn to attack
-                battleState.wildPokemon->UseMove(battleState.wildPokemon->moves[randomIndex] , battleState.playerPokemon);
+                battleState.wildPokemon->SelectAndUseMove(battleState.playerPokemon);
             }
 
             // Update the battle state after the turn

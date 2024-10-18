@@ -1,14 +1,13 @@
 #include "../include/Pokemon/Pokemons/Zubat.hpp"
 #include "../include/Pokemon/PokemonType.hpp"
 #include "../include/Pokemon/Move.hpp"
-#include "../include/Utility/Utility.hpp"
 #include <iostream>
 
 namespace N_Pokemon
 {
     namespace N_Pokemons
     {
-        Zubat::Zubat() : Pokemon("Zubat", PokemonType::Poison, 100, {Move("SUPERSONIC", 25), Move("TACKLE", 10)}) {}
+        Zubat::Zubat() : Pokemon("Zubat", PokemonType::Poison, 85, {Move("BITE", 18), Move("LEECH LIFE", 10)}) {}
 
         void Zubat::Attack(Move selectedMove, Pokemon *target)
         {

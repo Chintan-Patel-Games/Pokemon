@@ -16,7 +16,7 @@ namespace N_Main
     public:
         Game();
         ~Game();
-        void GameLoop(N_Character::N_Player::Player *player);
-        void VisitPokeCenter(N_Character::N_Player::Player *player);
+        void GameLoop(Player *player);
+        void VisitPokeCenter(Player *player);
     };
 }

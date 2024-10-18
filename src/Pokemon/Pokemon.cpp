@@ -1,19 +1,18 @@
 #include "../include/Pokemon/Pokemon.hpp"
 #include "../include/Pokemon/PokemonType.hpp"
-#include "../include/Pokemon/Move.hpp"
 #include "../include/Utility/Utility.hpp"
 #include <iostream>
 
 namespace N_Pokemon
 {
     // Default constructor
-    Pokemon::Pokemon() : name("Unknown"), type(PokemonType::Normal), health(50), maxHealth(50), attackPower(10) {}
+    Pokemon::Pokemon() : name("Unknown"), type(PokemonType::Normal), health(50), maxHealth(50) {}
 
     // Parameterized constructor
     Pokemon::Pokemon(std::string p_name, PokemonType p_type, int p_health, std::vector<Move> p_moves) : name(p_name), type(p_type), health(p_health), maxHealth(p_health), moves(p_moves) {}
 
     // Copy constructor
-    Pokemon::Pokemon(const Pokemon *other) : name(other->name), type(other->type), health(other->health), maxHealth(other->maxHealth), attackPower(other->attackPower) {}
+    Pokemon::Pokemon(const Pokemon *other) : name(other->name), type(other->type), health(other->health), maxHealth(other->maxHealth), attackPower(other->attackPower), moves(other->moves) {}
 
     // Reduce HP by the damage amount
     void Pokemon::TakeDamage(int damage)
@@ -39,7 +38,15 @@ namespace N_Pokemon
 
     void Pokemon::Attack(Move selectedMove, Pokemon *target) { target->TakeDamage(selectedMove.power); }
 
-    void Pokemon::ReduceAttackPower(int reducedDamage, Pokemon *target) { target->attackPower = 5; };
+    void Pokemon::ReduceAttackPower(int reducedDamage)
+    {
+        for (int i = 0; i < moves.size(); i++)
+        {
+            moves[i].power -= reducedDamage;
+            if (moves[i].power < 0)
+                moves[i].power = 0;
+        }
+    };
 
     void Pokemon::SelectAndUseMove(Pokemon *target)
     {

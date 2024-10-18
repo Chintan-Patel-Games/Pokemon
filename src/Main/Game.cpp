@@ -21,29 +21,16 @@ namespace N_Main
     Game::Game()
     {
         // Create a sample grass environment with actual Pokemon objects
-        forestGrass = new Grass{"Forest", {new Pidgey(), new Caterpie(), new Zubat()}, 70};
-        battleManager = new N_Battle::BattleManager;
-        encounterManager = new N_Battle::WildEncounterManager;
-        wildPokemon = new N_Pokemon::Pokemon;
+        forestGrass = {"Forest", {Pidgey(), Caterpie(), Zubat()}, 70};
     }
 
-    Game::~Game()
-    {
-        // Delete each Pokemon in wildPokemonList
-        for (N_Pokemon::Pokemon *pokemon : forestGrass->wildPokemonList)
-        {
-            delete pokemon; // Delete each dynamically allocated Pokemon
-        }
-        // delete forestGrass;      // Delete the Grass object
-        // delete battleManager;    // Delete the BattleManager object
-        // delete encounterManager; // Delete the WildEncounterManager object
-        // delete wildPokemon;      // Delete the dynamically allocated wildPokemon
-    }
-
-    void Game::GameLoop(Player *&player)
+    void Game::GameLoop(Player &player)
     {
         int choice;
         bool keepPlaying = true;
+        N_Battle::BattleManager battleManager;
+        N_Battle::WildEncounterManager encounterManager;
+        N_Pokemon::Pokemon wildPokemon;
 
         while (keepPlaying)
         {
@@ -51,7 +38,7 @@ namespace N_Main
             Utility::ClearConsole();
 
             // Display options to the player
-            cout << "\nWhat would you like to do next, " << player->name << "?\n";
+            cout << "\nWhat would you like to do next, " << player.name << "?\n";
             cout << "1. Battle Wild Pokémon\n";
             cout << "2. Visit PokeCenter\n";
             cout << "3. Challenge Gyms\n";
@@ -67,8 +54,9 @@ namespace N_Main
             {
             case 1:
             {
-                wildPokemon = encounterManager->GetRandomPokemonFromGrass(forestGrass);
-                battleManager->StartBattle(player, wildPokemon);
+                // Create a scope within case 1
+                wildPokemon = encounterManager.GetRandomPokemonFromGrass(forestGrass);
+                battleManager.StartBattle(player, wildPokemon);
                 break;
             }
             case 2:
@@ -110,12 +98,12 @@ namespace N_Main
             Utility::WaitForEnter();
         }
 
-        cout << "Goodbye, " << player->name << "! Thanks for playing!\n";
+        cout << "Goodbye, " << player.name << "! Thanks for playing!\n";
     }
 
-    void Game::VisitPokeCenter(Player *&player)
+    void Game::VisitPokeCenter(Player &player)
     {
-        if (player->chosenPokemon->GetPokemonCurrentHealth() == player->chosenPokemon->GetPokemonMaxHealth())
+        if (player.chosenPokemon.GetPokemonCurrentHealth() == player.chosenPokemon.GetPokemonMaxHealth())
         {
             cout << "Your Pokémon is already at full health!\n";
         }
@@ -123,9 +111,9 @@ namespace N_Main
         {
             cout << "You head to the PokeCenter.\n";
             cout << "Healing your Pokémon...\n";
-            Utility::WaitForEnter();       // Simulate a short pause for the healing process
-            player->chosenPokemon->Heal(); // Heal the player's Pokémon
-            cout << player->chosenPokemon->GetPokemonName() << "'s health is fully restored!\n";
+            Utility::WaitForEnter(); // Simulate a short pause for the healing process
+            player.chosenPokemon.Heal();        // Heal the player's Pokémon
+            cout << player.chosenPokemon.GetPokemonName() << "'s health is fully restored!\n";
         }
     }
 }

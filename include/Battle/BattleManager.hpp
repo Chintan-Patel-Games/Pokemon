@@ -11,11 +11,10 @@ namespace N_Battle
     class BattleManager
     {
     public:
-        ~BattleManager();
-        void StartBattle(Player* &player, N_Pokemon::Pokemon* &wildPokemon);
+        void StartBattle(Player &player, N_Pokemon::Pokemon &wildPokemon);
 
     private:
-        BattleState* battleState = nullptr; // New BattleState object to track the battle
+        BattleState battleState; // New BattleState object to track the battle
         
         void Battle();
         void HandleBattleOutcome();

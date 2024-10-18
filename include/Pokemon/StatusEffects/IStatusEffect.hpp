@@ -1,10 +1,10 @@
 #pragma once
-#include "../include/Pokemon/Pokemon.hpp"
 #include <iostream>
 #include <string>
 
 namespace N_Pokemon
 {
+    class Pokemon;
     namespace N_StatusEffects
     {
         // Default constructor

@@ -26,12 +26,12 @@ namespace N_Battle
     {
         while (battleState.battleOngoing)
         {
-            if (battleState.playerTurn)
+            if (battleState.playerTurn && battleState.playerPokemon->CanAttack())
             {
                 // Player's turn to attack
                 battleState.playerPokemon->SelectAndUseMove(battleState.wildPokemon);
             }
-            else
+            else if (battleState.wildPokemon->CanAttack())
             {
                 battleState.wildPokemon->SelectAndUseMove(battleState.playerPokemon);
             }

@@ -16,7 +16,7 @@ namespace N_Battle
         battleState.playerTurn = true; // Player starts first
         battleState.battleOngoing = true;
 
-        cout << "A wild " << wildPokemon->name << " appeared!\n";
+        cout << "A wild " << wildPokemon->name << " appeared!\n" << endl;
         Battle();
     }
 

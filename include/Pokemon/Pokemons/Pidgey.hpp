@@ -8,7 +8,7 @@ namespace N_Pokemon
         class Pidgey : public Pokemon
         {
         private:
-            void WingAttack(Pokemon &target);
+            void WingAttack(Pokemon* &target);
         public:
             Pidgey();
         };

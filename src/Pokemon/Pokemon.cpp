@@ -11,7 +11,7 @@ namespace N_Pokemon
     Pokemon::Pokemon(std::string p_name, PokemonType p_type, int p_health, int p_attackPower) : name(p_name), type(p_type), health(p_health), maxHealth(p_health), attackPower(p_attackPower) {}
 
     // Copy constructor
-    Pokemon::Pokemon(const Pokemon &other) : name(other.name), type(other.type), health(other.health), maxHealth(other.maxHealth), attackPower(other.attackPower) {}
+    Pokemon::Pokemon(const Pokemon* &other) : name(other->name), type(other->type), health(other->health), maxHealth(other->maxHealth), attackPower(other->attackPower) {}
 
     // Reduce HP by the damage amount
     void Pokemon::TakeDamage(int damage)
@@ -36,10 +36,10 @@ namespace N_Pokemon
     }
 
     // Attack another Pokemon
-    void Pokemon::Attack(Pokemon &target)
+    void Pokemon::Attack(Pokemon* &target)
     {
         int damage = attackPower; // Use attack power for damage calculation
-        std::cout << name << " attacks " << target.name << " for " << damage << " damage!\n";
-        target.TakeDamage(damage);
+        std::cout << name << " attacks " << target->name << " for " << damage << " damage!\n";
+        target->TakeDamage(damage);
     }
 }

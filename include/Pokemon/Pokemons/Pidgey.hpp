@@ -1,5 +1,6 @@
 #pragma once
 #include "../include/Pokemon/Pokemon.hpp"
+#include "../include/Battle/BattleManager.hpp"
 
 namespace N_Pokemon
 {
@@ -9,6 +10,7 @@ namespace N_Pokemon
         {
         public:
             Pidgey();
+            N_Battle::BattleManager* battleManager;
             void Attack(Move selectedMove, Pokemon* target) override;
         };
     }

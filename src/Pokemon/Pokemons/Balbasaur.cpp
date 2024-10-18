@@ -1,7 +1,6 @@
 #include "../include/Pokemon/Pokemons/Balbasaur.hpp"
 #include "../include/Pokemon/PokemonType.hpp"
 #include "../include/Pokemon/Move.hpp"
-#include "../include/Utility/Utility.hpp"
 #include <iostream>
 
 namespace N_Pokemon

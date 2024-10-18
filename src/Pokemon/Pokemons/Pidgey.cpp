@@ -9,7 +9,7 @@ namespace N_Pokemon
 {
     namespace N_Pokemons
     {
-        Pidgey::Pidgey() : Pokemon("Pidgey", PokemonType::Normal, 100, {Move("WING ATTACK", 25), Move("TACKLE", 10)}) {}
+        Pidgey::Pidgey() : Pokemon("Pidgey", PokemonType::Normal, 80, {Move("GUST", 15), Move("TACKLE", 10)}) {}
 
         void Pidgey::Attack(Move selectedMove, Pokemon *target)
         {
@@ -21,7 +21,7 @@ namespace N_Pokemon
                 if (rand() % 100 < 20)
                 {
                     std::cout << "... and blew the opponent away!\n";
-                    // N_Battle::BattleManager::StopBattle();
+                    battleManager->StopBattle();
                     N_Utility::Utility::WaitForEnter();
                 }
             }

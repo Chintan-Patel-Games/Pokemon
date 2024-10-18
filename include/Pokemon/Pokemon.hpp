@@ -1,10 +1,11 @@
 #pragma once
 #include <string>
 #include <vector>
-#include "../include/Pokemon/Move.hpp"
+#include "Move.hpp"
 
 namespace N_Pokemon
 {
+    struct Move;
     enum class PokemonType;
 
     class Pokemon
@@ -18,18 +19,18 @@ namespace N_Pokemon
         std::vector<Move> moves; // Store the list of moves
 
         Pokemon();
-        Pokemon(std::string p_name, PokemonType p_type, int p_health, std::vector<Move> p_moves);
+        Pokemon(std::string p_name, PokemonType p_type, int p_health, std::vector<Move>);
         Pokemon(const Pokemon *other);
 
         bool IsFainted() const;
         void Heal();
-        virtual void Attack(Move selectedMove, Pokemon *target) = 0;
+        virtual void Attack(Move selectedMove, Pokemon *target);
         void TakeDamage(int damage);
-        void ReduceAttackPower(int reducedDamage, Pokemon *target);
-
-    // protected:
-        // Base implementation for selecting and using a move
         void SelectAndUseMove(Pokemon *target);
+        void ReduceAttackPower(int reducedDamage);
+
+    protected:
+        // Base implementation for selecting and using a move
         void PrintAvailableMoves();
         int SelectMove();
         void UseMove(Move selectedMove, Pokemon *target);

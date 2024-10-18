@@ -2,9 +2,9 @@
 #include "../include/Battle/BattleManager.hpp"
 #include "../include/Battle/WildEncounterManager.hpp"
 #include "../include/Character/Player/Player.hpp"
-#include "../../include/Pokemon/Pokemons/Caterpie.hpp"
-#include "../../include/Pokemon/Pokemons/Pidgey.hpp"
-#include "../../include/Pokemon/Pokemons/Zubat.hpp"
+#include "../include/Pokemon/Pokemons/Caterpie.hpp"
+#include "../include/Pokemon/Pokemons/Pidgey.hpp"
+#include "../include/Pokemon/Pokemons/Zubat.hpp"
 #include "../include/Utility/Utility.hpp"
 #include <iostream>
 

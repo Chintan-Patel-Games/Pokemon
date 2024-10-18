@@ -8,6 +8,11 @@ namespace N_Pokemon
     {
         Zubat::Zubat() : Pokemon("Zubat", PokemonType::Poison, 100, 20) {}
 
+        void Zubat::Attack(Pokemon* target)
+        {
+            Supersonic(target);
+        }
+
         void Zubat::Supersonic(Pokemon* target)
         {
             std::cout << name << " uses Supersonic on " << target->name << "!\n";

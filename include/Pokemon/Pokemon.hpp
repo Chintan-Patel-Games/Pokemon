@@ -16,11 +16,11 @@ namespace N_Pokemon
 
         Pokemon();
         Pokemon(std::string p_name, PokemonType p_type, int p_health, int p_attackPower);
-        Pokemon(const Pokemon* &other);
+        Pokemon(const Pokemon* other);
         
         bool IsFainted() const;
         void Heal();
-        void Attack(Pokemon* &target);
+        virtual void Attack(Pokemon* target) = 0;
         void TakeDamage(int damage);
     };
 }

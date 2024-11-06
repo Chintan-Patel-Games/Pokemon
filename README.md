@@ -6,6 +6,6 @@ So, you want to feel nostalgia while playing this game, Huh! Don't worry, I have
 
 To play this game, you'll just have to copy this "./Pokemon" and paste it to the terminal below. Or if you can type if, that's also fine. After that you'll be able to understand the game pretty well because Professor Oak will be there to guide you.
 
-To move on to the next dialouge, youll need to press Spacebar or any other key to proceed in the game.
+To move on to the next dialouge, youll need to press Enter to proceed in the game.
 
 Hope you'll get to feel nostalgia while playing this Pokemon game.

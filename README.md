@@ -1,4 +1,4 @@
-#Pokemon | Text-Based-Game
+# **Pokemon | Text-Based-Game**
 
 This Pokemon game has the same mechanics as the old Pokemon game which we all had played as some point. But still if you haven't played the old game, it's fine evne I hadn't played it. Although I have created this game through my sources and also the huge contributor and by the mentorship given by Outscal, I was able to create this masterpiece.
 

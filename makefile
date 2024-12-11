@@ -8,7 +8,7 @@ INCLUDE_DIR = include
 BUILD_DIR = build
 
 # Source files
-SRCS = $(SRC_DIR)/Main.cpp \
+SRCS = Main.cpp \
        $(wildcard $(SRC_DIR)/Battle/*.cpp) \
        $(wildcard $(SRC_DIR)/Character/*.cpp) \
        $(wildcard $(SRC_DIR)/Character/Player/*.cpp) \

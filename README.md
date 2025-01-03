@@ -1,11 +1,29 @@
-# **Pokemon | Text-Based-Game**
+# Pokémon | Text-Based Game
 
-This Pokemon game has the same mechanics as the old Pokemon game which we all had played as some point. But still if you haven't played the old game, it's fine evne I hadn't played it. Although I have created this game through my sources and also the huge contributor and by the mentorship given by Outscal, I was able to create this masterpiece.
+Relive the nostalgia of classic Pokémon games with this text-based adventure! Inspired by the Pokémon games we all loved, this project brings back those cherished memories—whether you're revisiting them or discovering them for the first time.
 
-So, you want to feel nostalgia while playing this game, Huh! Don't worry, I have implemented most of the features, which the old Pokemon game used to have.
+Developed with guidance from **Outscal** and my own dedication, this game is a tribute to the timeless appeal of Pokémon.
 
-To play this game, you'll just have to copy this "./Pokemon" and paste it to the terminal below. Or if you can type if, that's also fine. After that you'll be able to understand the game pretty well because Professor Oak will be there to guide you.
+## About the Game
+This game incorporates many features from the classic Pokémon games, creating an immersive experience even in a text-based format. If you’re ready to embark on a nostalgic journey, Professor Oak will guide you every step of the way!
 
-To move on to the next dialouge, youll need to press Enter to proceed in the game.
+### Gameplay Mechanics
+- **Interactive Story**: Navigate through the dialogue by pressing `Enter`.
+- **Classic Elements**: Catch, battle, and train Pokémon just like in the old days.
+- **Simple Commands**: Easy to understand and play—Professor Oak will make sure of it!
 
-Hope you'll get to feel nostalgia while playing this Pokemon game.
+## How to Play
+1. Open your terminal.
+2. Type or copy the following command:
+
+ ```bash
+   ./Pokemon
+   ```
+
+3. Press `Enter` to start your adventure.
+4. Follow the on-screen instructions and enjoy the game!
+
+## Features
+- Engaging gameplay with familiar mechanics.
+- Simple and intuitive text-based interface.
+- Nostalgic callbacks to the original Pokémon games.
